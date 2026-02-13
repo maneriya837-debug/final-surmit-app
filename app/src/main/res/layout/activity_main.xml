@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/disaster"
+    android:padding="24dp"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imgWarning"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:src="@drawable/alert"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp" />
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Disaster Alert"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:layout_below="@id/imgWarning"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_below="@id/txtTitle"
+        android:layout_marginTop="80dp"
+        android:hint="Email / Mobile Number"
+        android:padding="15dp"
+        android:background="@drawable/bpge"
+        android:drawableStart="@drawable/r"
+        android:drawablePadding="10dp"
+        android:inputType="textEmailAddress"
+        android:textColor="#000"
+        android:textColorHint="#888" />
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_below="@id/etEmail"
+        android:layout_marginTop="16dp"
+        android:hint="Password"
+        android:padding="15dp"
+        android:background="@drawable/bpge"
+        android:drawableStart="@drawable/ic_lock"
+        android:drawablePadding="10dp"
+        android:inputType="textPassword"
+        android:textColor="#000"
+        android:textColorHint="#888" />
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_below="@id/etPassword"
+        android:layout_marginTop="24dp"
+        android:text="Login"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:background="@drawable/red" />
+    <TextView
+        android:id="@+id/txtForgot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password?  > Sign up"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        android:layout_below="@id/btnLogin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+
+
+
+</RelativeLayout>
