@@ -3,13 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/disaster">
+    android:background="@drawable/bpge">
     <TextView
         android:id="@+id/titleSettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Settings"
-        android:textColor="#FFFFFF"
+        android:textColor="#000"
+        android:background=""
         android:textSize="30sp"
         android:textStyle="bold"
         android:layout_margin="16dp" />
@@ -29,7 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginBottom="10dp"
-                android:background="#1B2B45"
+                android:background="#FFFFFF"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:padding="12dp">
@@ -45,7 +46,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Rajesh Khanna"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000"
                     android:textSize="23sp" />
 
                 <ImageView
@@ -57,32 +58,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:background="#1B2B45"
-                android:padding="12dp"
-                android:layout_marginBottom="10dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/profile"
-                    android:layout_marginEnd="10dp"/>
-                <TextView
-                    android:text="Profile"
-                    android:textColor="#FFFFFF"
-                    android:textSize="23sp"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"/>
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/arrow"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:background="#1B2B45"
+                android:background="#FFFFFF"
                 android:padding="12dp"
                 android:layout_marginBottom="10dp"
                 android:gravity="center_vertical"
@@ -94,7 +70,7 @@
                     android:layout_marginEnd="10dp"/>
                 <TextView
                     android:text="Dark Mode"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000"
                     android:textSize="23sp"
                     android:layout_width="0dp"
                     android:layout_weight="1"
@@ -108,7 +84,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:background="#1B2B45"
+                android:background="#FFFFFF"
                 android:padding="12dp"
                 android:layout_marginBottom="10dp"
                 android:gravity="center_vertical"
@@ -120,7 +96,7 @@
                     android:layout_marginEnd="10dp"/>
                 <TextView
                     android:text="Notification"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000"
                     android:textSize="23sp"
                     android:layout_width="0dp"
                     android:layout_weight="1"
@@ -134,7 +110,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:background="#1B2B45"
+                android:background="#FFFFFF"
                 android:padding="12dp"
                 android:layout_marginBottom="10dp"
                 android:gravity="center_vertical"
@@ -146,7 +122,7 @@
                     android:layout_marginEnd="10dp"/>
                 <TextView
                     android:text="Change Password"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000"
                     android:textSize="23sp"
                     android:layout_width="0dp"
                     android:layout_weight="1"
@@ -156,10 +132,11 @@
                     android:layout_height="20dp"
                     android:src="@drawable/arrow"/>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:background="#1B2B45"
+                android:background="#FFFFFF"
                 android:padding="12dp"
                 android:layout_marginBottom="10dp"
                 android:gravity="center_vertical"
@@ -171,7 +148,7 @@
                     android:layout_marginEnd="10dp"/>
                 <TextView
                     android:text="Private Policy"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000"
                     android:textSize="23sp"
                     android:layout_width="0dp"
                     android:layout_weight="1"
@@ -184,7 +161,33 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:background="#1B2B45"
+                android:background="#FFFFFF"
+                android:padding="12dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/about"
+                    android:layout_marginEnd="10dp"/>
+                <TextView
+                    android:text="About Us"
+                    android:textColor="#000"
+                    android:textSize="23sp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"/>
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/arrow"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="#FFFFFF"
                 android:padding="12dp"
                 android:layout_marginBottom="10dp"
                 android:gravity="center_vertical"
@@ -196,7 +199,7 @@
                     android:layout_marginEnd="10dp"/>
                 <TextView
                     android:text="Log out"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000"
                     android:textSize="23sp"
                     android:layout_width="0dp"
                     android:layout_weight="1"
@@ -219,6 +222,7 @@
                 android:background="#1E3A5F"
                 android:orientation="horizontal"
                 android:gravity="center"
+                android:layout_marginTop="90dp"
                 android:weightSum="5">
 
                 <LinearLayout
@@ -291,13 +295,13 @@
 
                     <ImageView
 
-                        android:src="@drawable/ic_game"
+                        android:src="@drawable/guide"
                         android:layout_width="22dp"
                         android:layout_height="22dp" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Games"
+                        android:text="Safety Guide"
                         android:textSize="12sp"
                         android:textColor="@android:color/white"/>
                 </LinearLayout>
