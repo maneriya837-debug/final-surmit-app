@@ -29,5 +29,10 @@
     <color name="black">#000000</color>
     <color name="grey_text">#6E6E6E</color>
 
+    <color name="nav_bg">#FFFFFF</color>        <!-- bottom nav background -->
+    <color name="nav_active">#2F6FED</color>    <!-- selected icon/text -->
+    <color name="nav_inactive">#9CA3AF</color>  <!-- unselected icon/text -->
+
+
 </resources>
 

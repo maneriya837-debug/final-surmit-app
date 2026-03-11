@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2F4F8">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- HEADER -->
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:background="#E53935"
+            android:padding="14dp">
+
+            <ImageView
+                android:src="@drawable/ic_back"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:tint="@android:color/white"/>
+
+            <TextView
+                android:text="Emergency Alerts 🚨"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginStart="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <!-- WEATHER ALERT CARD -->
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:radius="12dp"
+            android:elevation="4dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:background="#E8F0FE"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="🌧 Weather Alert"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="#1A237E"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:text="Heavy Rainfall Warning"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="6dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:text="Temperature: 28°C"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:text="Humidity: 85%"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:text="Wind: 20 km/h"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:text="📍 Location: Pune"
+                    android:layout_marginTop="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- FLOOD ALERT CARD -->
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:radius="12dp"
+            android:elevation="4dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:background="#E53935"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="⚠ Flood Alert - High Risk"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:text="Heavy rainfall detected in your area."
+                    android:textColor="@android:color/white"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:text="Move to higher ground immediately."
+                    android:textColor="@android:color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:text="Avoid low-lying roads."
+                    android:textColor="@android:color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- VIEW EVACUATION BUTTON -->
+
+        <Button
+            android:text="📍 View Evacuation Route"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginTop="18dp"
+            android:backgroundTint="#1E5BB8"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+
+        <!-- SAFETY TIPS -->
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:radius="12dp"
+            android:elevation="4dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="Safety Tips"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:text="• Stay indoors if possible"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:text="• Avoid flooded roads"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:text="• Keep emergency kit ready"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:text="• Follow evacuation instructions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <!-- BOTTOM NAVIGATION -->
+
+        <LinearLayout
+            android:id="@+id/bottomNav"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:background="#1E3A5F"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="90dp"
+            android:weightSum="5">
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:src="@drawable/ic_home"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:tint="@android:color/white"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Home"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/white"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:src="@drawable/ic_bell"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:tint="@android:color/white"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Alerts"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/white"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:src="@drawable/ic_medical"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:tint="@android:color/white"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Resources"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/white"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+
+                    android:src="@drawable/guide"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Safety Guide"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/white"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:src="@drawable/ic_profile"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:tint="@android:color/white"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Profile"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/white"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
