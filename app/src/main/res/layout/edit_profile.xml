@@ -174,4 +174,8 @@
 
     </ScrollView>
 
+    <!--Bottom Navigation -->
+    <include layout="@layout/bottom_nav"/>
+</LinearLayout>
+
 
