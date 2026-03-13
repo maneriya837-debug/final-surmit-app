@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- TOP BAR -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#0C005E"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="16dp">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/topbar"
+            android:tint="#FFFFFF"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  Safety Quiz"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginStart="16dp"/>
+
+    </LinearLayout>
+
+
+    <!-- CONTENT -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/white_background">
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Safety Quiz"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:textColor="#111827"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select category"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"/>
+
+
+            <!-- GRID -->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:useDefaultMargins="true">
+
+                <!-- EARTHQUAKE -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="190dp"
+                    android:layout_columnWeight="1"
+                    android:orientation="vertical"
+                    android:background="#FFFFFF"
+                    android:elevation="6dp"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="130dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/earthquake"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Earthquake"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="8dp"/>
+
+                </LinearLayout>
+
+
+                <!-- FLOOD -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="190dp"
+                    android:layout_columnWeight="1"
+                    android:orientation="vertical"
+                    android:background="#FFFFFF"
+                    android:elevation="6dp"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="130dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/flood"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Flood"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="8dp"/>
+
+                </LinearLayout>
+
+
+                <!-- CYCLONE -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="190dp"
+                    android:layout_columnWeight="1"
+                    android:orientation="vertical"
+                    android:background="#FFFFFF"
+                    android:elevation="6dp"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="130dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/cyclone"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cyclone"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="8dp"/>
+
+                </LinearLayout>
+
+
+                <!-- FIRE -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="190dp"
+                    android:layout_columnWeight="1"
+                    android:orientation="vertical"
+                    android:background="#FFFFFF"
+                    android:elevation="6dp"
+                    android:padding="8dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="130dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/fire"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Fire"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="8dp"/>
+
+                </LinearLayout>
+
+            </GridLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+    <!-- BOTTOM NAVIGATION -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:background="#0C005E"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:text="Home"
+            android:textColor="#FFFFFF"
+            android:layout_margin="25dp"/>
+
+        <TextView
+            android:text="Alerts"
+            android:textColor="#FFFFFF"
+            android:layout_margin="25dp"/>
+
+        <TextView
+            android:text="Profile"
+            android:textColor="#FFFFFF"
+            android:layout_margin="25dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F3F4F6">
+
+    <!-- TOP BAR -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#0C005E"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="16dp">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/topbar"
+            android:tint="#FFFFFF"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Edit Profile"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginStart="16dp"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/white_background">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+        <!-- Profile Image -->
+        <ImageView
+            android:id="@+id/profileImage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/profile"
+            android:contentDescription="profile image"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit Photo"
+            android:textSize="18sp"
+            android:textColor="#D32F2F"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Name Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:padding="12dp"
+                android:text="Rajesh Khanna"
+                android:textCursorDrawable="@null" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Mobile Number Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="9876543210"
+                android:textCursorDrawable="@null"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:inputType="phone"
+                android:padding="12dp"
+                android:layout_marginTop="10dp"/>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Email Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="rajesh@gmail.com"
+                android:textCursorDrawable="@null"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:inputType="textEmailAddress"
+                android:padding="12dp"
+                android:layout_marginTop="10dp"/>
+        </androidx.cardview.widget.CardView>
+
+        <!-- City Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="pune"
+                android:textCursorDrawable="@null"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:padding="12dp"
+                android:layout_marginTop="10dp"/>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Location Card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="katraj"
+                android:textCursorDrawable="@null"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:padding="12dp"
+                android:layout_marginTop="10dp"/>
+        </androidx.cardview.widget.CardView>
+
+
+        <!-- Save Button -->
+            <Button
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#D32F2F"
+                android:padding="12dp"
+                android:text="Save Changes"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+    </LinearLayout>
+
+    </ScrollView>
+
+
