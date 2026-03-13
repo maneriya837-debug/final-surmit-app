@@ -23,7 +23,6 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
             android:text="  Safety Quiz"
             android:textColor="#FFFFFF"
             android:textSize="22sp"
@@ -43,7 +42,6 @@
         <LinearLayout
 
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="20dp">
 
@@ -71,7 +69,6 @@
             <!-- GRID -->
             <GridLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
                 android:columnCount="2"
                 android:useDefaultMargins="true">
 
@@ -196,6 +193,5 @@
 
     <!-- BOTTOM NAVIGATION -->
 
-    <include layout="@layout/bottom_nav"/>
 
 </LinearLayout>

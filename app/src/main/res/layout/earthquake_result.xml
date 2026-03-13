@@ -17,7 +17,6 @@
         <ImageView
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:src="@drawable/arrow_white"
             android:tint="#FFFFFF"/>
 
         <TextView
@@ -32,8 +31,6 @@
     <!-- Content -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
         android:background="@drawable/white_background"
         android:gravity="center"
         android:orientation="vertical"
@@ -109,9 +106,5 @@
 
 
     </LinearLayout>
-
-
-    <!-- BOTTOM NAVIGATION -->
-    <include layout="@layout/bottom_nav"/>
 
 </LinearLayout>
