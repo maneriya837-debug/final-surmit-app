@@ -175,3 +175,6 @@
     </ScrollView>
 
 
+    <!--bottom navigation-->
+    <include layout="@layout/bottom_nav"/>
+</LinearLayout>
