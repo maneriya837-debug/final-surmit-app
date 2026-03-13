@@ -38,10 +38,10 @@
                 android:id="@+id/etFullName"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
-                android:hint="Full Name"
                 android:layout_marginTop="30dp"
                 android:background="@android:drawable/edit_text"
-                android:padding="12dp"/>
+                android:hint="Full Name"
+                android:padding="12dp" />
 
             <EditText
                 android:layout_width="match_parent"
@@ -90,16 +90,18 @@
                 android:padding="12dp"
                 android:background="@android:drawable/edit_text"
                 android:layout_marginBottom="16dp"/>
+
             <EditText
                 android:id="@+id/etConfirmPassword"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
+                android:layout_marginBottom="20dp"
+                android:background="@android:drawable/edit_text"
+                android:drawableStart="@android:drawable/ic_lock_lock"
                 android:hint="Confirm Password"
                 android:inputType="textPassword"
-                android:drawableStart="@android:drawable/ic_lock_lock"
-                android:padding="12dp"
-                android:background="@android:drawable/edit_text"
-                android:layout_marginBottom="20dp"/>
+                android:padding="12dp" />
+
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
