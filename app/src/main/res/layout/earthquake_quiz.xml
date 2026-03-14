@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="#0C005E"
+        android:background="#1E3A5F"
         android:orientation="horizontal"
         android:gravity="center_vertical"
         android:padding="16dp">
@@ -132,123 +132,5 @@
 
 
     <!-- BOTTOM NAVIGATION -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:background="#0C005E"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:weightSum="5">
-
-        <LinearLayout
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:src="@drawable/ic_home"
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:backgroundTint="#FFFFFF"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Home"
-                android:textSize="12sp"
-                android:textColor="@android:color/white"/>
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:src="@drawable/ic_bell"
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:backgroundTint="#FFFFFF"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Alerts"
-                android:textSize="12sp"
-                android:textColor="@android:color/white"/>
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:src="@drawable/ic_medical"
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:backgroundTint="#FFFFFF"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Resources"
-                android:textSize="12sp"
-                android:textColor="@android:color/white"/>
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:src="@drawable/ic_game"
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:backgroundTint="#FFFFFF"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Games"
-                android:textSize="12sp"
-                android:textColor="@android:color/white"/>
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:src="@drawable/ic_profile"
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:backgroundTint="#FFFFFF"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Profile"
-                android:textSize="12sp"
-                android:textColor="@android:color/white"/>
-        </LinearLayout>
-
-    </LinearLayout>
-
-</LinearLayout>
+    <include layout="@layout/bottom_nav"/>
+   </LinearLayout>

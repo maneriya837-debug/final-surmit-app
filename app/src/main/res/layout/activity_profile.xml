@@ -209,124 +209,14 @@
                     android:layout_height="20dp"
                     android:src="@drawable/arrow"/>
             </LinearLayout>
+            <!--bottom navigation-->
+            <include layout="@layout/bottom_nav"/>
+        </LinearLayout>
 
 
 
 
 
-            <LinearLayout
-                android:id="@+id/bottomNav"
-                android:layout_alignParentBottom="true"
-                android:layout_width="match_parent"
-                android:layout_height="65dp"
-                android:background="#1E3A5F"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_marginTop="90dp"
-                android:weightSum="5">
-
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:src="@drawable/ic_home"
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
-                        android:tint="@android:color/white"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Home"
-                        android:textSize="12sp"
-                        android:textColor="@android:color/white"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:src="@drawable/ic_bell"
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
-                        android:tint="@android:color/white"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Alerts"
-                        android:textSize="12sp"
-                        android:textColor="@android:color/white"/>
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:src="@drawable/ic_medical"
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
-                        android:tint="@android:color/white"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Resources"
-                        android:textSize="12sp"
-                        android:textColor="@android:color/white"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-
-                        android:src="@drawable/guide"
-                        android:layout_width="22dp"
-                        android:layout_height="22dp" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Safety Guide"
-                        android:textSize="12sp"
-                        android:textColor="@android:color/white"/>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:src="@drawable/ic_profile"
-                        android:layout_width="22dp"
-                        android:layout_height="22dp"
-                        android:tint="@android:color/white"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Profile"
-                        android:textSize="12sp"
-                        android:textColor="@android:color/white"/>
-                </LinearLayout>
-
-            </LinearLayout>
 
 
 
