@@ -28,7 +28,7 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:src="@drawable/newlogo"
-            android:layout_marginBottom="dp"/>
+            android:layout_marginBottom="10dp"/>
 
         <!-- App Name -->
         <TextView
@@ -39,18 +39,18 @@
             android:textStyle="bold"
             android:textSize="50sp"
             android:textColor="#1B3C73"
-            android:layout_marginBottom="8dp"/>
+            android:layout_marginBottom="10dp"/>
 
         <!-- Tagline -->
         <TextView
             android:id="@+id/tagline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Smart Decisions in Critical Moments"
+            android:text="Stay Safe Stay Prepared"
             android:textSize="20sp"
-            android:textColor="#707070"
+            android:textColor="#000"
             android:gravity="center"/>
 
     </LinearLayout>
 
-</RelativeLayout>
+</RelativeLayout>++
