@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/disaster"
+    android:background="@drawable/bpge"
     android:padding="24dp"
     tools:context=".MainActivity">
 
@@ -23,7 +23,7 @@
         android:text="Disaster Alert"
         android:textSize="28sp"
         android:textStyle="bold"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/black"
         android:layout_below="@id/imgWarning"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp" />
@@ -35,8 +35,7 @@
         android:layout_marginTop="80dp"
         android:hint="Email / Mobile Number"
         android:padding="15dp"
-        android:background="@drawable/bpge"
-        android:drawableStart="@drawable/r"
+        android:background="#FFFFFF"
         android:drawablePadding="10dp"
         android:inputType="textEmailAddress"
         android:textColor="#000"
@@ -49,8 +48,7 @@
         android:layout_marginTop="16dp"
         android:hint="Password"
         android:padding="15dp"
-        android:background="@drawable/bpge"
-        android:drawableStart="@drawable/ic_lock"
+        android:background="#FFFFFF"
         android:drawablePadding="10dp"
         android:inputType="textPassword"
         android:textColor="#000"
@@ -72,7 +70,7 @@
         android:layout_height="wrap_content"
         android:text="Forgot Password?  > Sign up"
         android:textColor="@android:color/black"
-        android:textSize="14sp"
+        android:textSize="16sp"
         android:layout_below="@id/btnLogin"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp" />
