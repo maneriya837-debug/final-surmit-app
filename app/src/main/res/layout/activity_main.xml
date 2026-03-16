@@ -65,14 +65,14 @@
         android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="@android:color/white"
-        android:background="#1E3A5F" />
+        android:background="@drawable/red" />
     <TextView
         android:id="@+id/txtForgot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Forgot Password?  > Sign up"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
         android:layout_below="@id/btnLogin"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp" />
