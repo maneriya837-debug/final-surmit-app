@@ -3,32 +3,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bpge">
+
     <LinearLayout
+        android:id="@+id/topBar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="#1E2A38"
+        android:background="#1E3A5F"
         android:gravity="center_vertical"
         android:paddingHorizontal="15dp">
+
         <ImageView
+            android:id="@+id/btnBack"
+            android:clickable="true"
+            android:focusable="true"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/topbar"
             android:tint="@android:color/white"/>
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Registration"
+            android:text="  Registration"
             android:textColor="@android:color/white"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:gravity="center"/>
+            android:textSize="22sp"
+            android:textStyle="bold"/>
     </LinearLayout>
+
     <ScrollView
         android:layout_below="@id/topBar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
         android:padding="20dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -106,9 +115,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:text="Verify"
+                android:textSize="20sp"
                 android:textColor="@android:color/white"
-                android:textSize="16sp"
-                android:backgroundTint="#1E2A38"/>
+                android:backgroundTint="#1E3A5F"/>
         </LinearLayout>
     </ScrollView>
 

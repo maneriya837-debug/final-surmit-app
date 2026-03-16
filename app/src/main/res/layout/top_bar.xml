@@ -3,7 +3,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="60dp"
-    android:background="#0C005E"
+    android:background="#1E3A5F"
+    android:orientation="horizontal"
     android:gravity="center_vertical"
     android:paddingStart="16dp"
     android:paddingEnd="16dp">
@@ -11,15 +12,17 @@
     <ImageView
         android:layout_width="25dp"
         android:layout_height="25dp"
-        android:src="@drawable/arrow_white"
+        android:src="@drawable/topbar"
         android:tint="#FFFFFF"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="  Title"
+        android:text="  ⚠️ Evavuation Guidence"
         android:textColor="#FFFFFF"
         android:textSize="22sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:layout_marginStart="16dp"/>
 
 </LinearLayout>
+
