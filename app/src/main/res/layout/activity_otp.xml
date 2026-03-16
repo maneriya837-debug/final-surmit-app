@@ -7,7 +7,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="#1F2A44"
+        android:background="#1E3A5F"
         android:padding="12dp">
         <ImageView
             android:id="@+id/btnBack"
