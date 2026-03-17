@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- TOP BAR -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#1E3A5F"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="16dp">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/topbar"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" About Us"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginStart="16dp"/>
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- INTRODUCTION -->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="The SurMit App is a mobile application that helps people make quick and better decisions during disasters or emergency situations. It uses Firebase to keep user data safe and manage information in real time.
+Users can log in using email and password, phone number, or as a guest for quick access. The app is easy to use with simple screens like splash, signup, login, and dashboard.
+The main goal of the SurMit App is to improve decision-making during disasters by providing useful information through a simple and reliable mobile platform. "
+                android:textStyle="bold"
+                android:textSize="20sp"/>
