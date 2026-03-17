@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="24dp">
+
+        <!-- Success Icon -->
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/verify"
+            android:layout_marginTop="20dp"/>
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SOS Sent Successfully"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#1F2A44"
+            android:layout_marginTop="16dp"/>
+
+        <!-- Emergency Contact Box -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="12dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/card_bg">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/bell"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Emergency Contacts Notified"
+                android:textColor="#000"
+                android:textSize="16sp"
+                android:layout_weight="1"
+                android:layout_marginStart="12dp"/>
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/verify"/>
+
+        </LinearLayout>
+
+        <!-- Family Contact Box -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="12dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/card_bg">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/family"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Family Contacts Notified"
+                android:textSize="16sp"
+                android:layout_weight="1"
+                android:textColor="#000"
+                android:layout_marginStart="12dp"/>
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/verify"/>
+
+        </LinearLayout>
+
+        <!-- Info Text -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your location and emergency alert has been sent."
+            android:textSize="14sp"
+            android:textColor="#000"
+            android:layout_marginTop="20dp"/>
+
+        <!-- Send SOS Again Button -->
+        <Button
+            android:id="@+id/btnSendAgain"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="Send SOS Again"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="#E53935"/>
+
+        <!-- I am Safe Button -->
+        <Button
+            android:id="@+id/btnSafe"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="I am Safe"
+            android:textColor="#000"
+            android:textSize="16sp"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="#E0E0E0"/>
+
+    </LinearLayout>
+
+</ScrollView>
