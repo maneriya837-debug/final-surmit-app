@@ -49,3 +49,10 @@ Users can log in using email and password, phone number, or as a guest for quick
 The main goal of the SurMit App is to improve decision-making during disasters by providing useful information through a simple and reliable mobile platform. "
                 android:textStyle="bold"
                 android:textSize="20sp"/>
+        </LinearLayout>
+
+    </ScrollView>
+
+    \
+
+</LinearLayout>
