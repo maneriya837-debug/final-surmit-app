@@ -3,13 +3,23 @@
     package="com.example.finalsurmitapp">
 
     <!-- Internet Permission -->
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <!-- Location Permissions -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+
     <!-- Required for Google Maps -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
 
     <application
         android:allowBackup="true"
@@ -18,11 +28,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <service
+            android:name=".MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
 
         <!-- Google Maps API KEY -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBTzcHFv78SYN7x6U9UWv22nnfAV5uvHPk"/>
+            android:value="AIzaSyDWhJwdrf03E6hX7pXwkHiREXUc0xyH3Aw"/>
 
         <!-- Splash Screen -->
         <activity
@@ -49,6 +66,25 @@
         <activity
             android:name=".DashboardActivity"
             android:exported="false"/>
+
+        <!-- Evacuationa -->
+        <activity android:name=".EvacuationActivity"/>
+
+        <!-- Emergency Alert -->
+        <activity android:name=".EmergencyAlertActivity"/>
+
+        <!-- Shelter -->
+        <activity android:name=".ShelterLocationsActivity"/>
+
+        <!-- contact -->
+        <activity android:name=".EmergencyContactsActivity"/>
+
+        <!-- setting -->
+        <activity android:name=".SettingsActivity"/>
+
+        <!-- Privacy -->
+        <activity android:name=".PrivacyPolicyActivity"/>
+
 
     </application>
 

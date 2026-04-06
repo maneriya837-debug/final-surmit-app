@@ -50,9 +50,7 @@ The main goal of the SurMit App is to improve decision-making during disasters b
                 android:textStyle="bold"
                 android:textSize="20sp"/>
         </LinearLayout>
-
     </ScrollView>
+        </LinearLayout>
 
-    \
 
-</LinearLayout>

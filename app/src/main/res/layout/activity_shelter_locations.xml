@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2F4F8">
+
+    <!-- HEADER -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:background="#1E3A5F"
+        android:gravity="center_vertical"
+        android:padding="15dp">
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/ic_back"
+            app:tint="@android:color/white"
+            android:id="@+id/btnBack"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Shelter Locations"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingStart="10dp"/>
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_bell"
+            android:layout_marginEnd="15dp"
+            app:tint="@android:color/white"/>
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_setting"
+            app:tint="@android:color/white"/>
+    </LinearLayout>
+
+    <!-- MAP -->
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_below="@id/header"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        tools:ignore="NotSibling" />
+
+    <!-- NEAREST SHELTER CARD -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardNearestShelter"
+        android:layout_below="@id/mapFragment"
+        android:layout_margin="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="6dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvNearestShelterName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Central Community Shelter"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="#000"/>
+
+            <TextView
+                android:id="@+id/tvNearestShelterDistance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1.2 km away"
+                android:layout_marginTop="4dp"
+                android:textColor="#555"/>
+
+            <TextView
+                android:id="@+id/tvNearestShelterStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Status: OPEN"
+                android:textColor="#0A7D00"
+                android:layout_marginTop="4dp"/>
+
+            <Button
+                android:id="@+id/btnGetDirections"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="8dp"
+                android:text="Get Directions"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:backgroundTint="#D32F2F"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- AVAILABLE SHELTERS LIST -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvShelters"
+        android:layout_below="@id/cardNearestShelter"
+        android:layout_above="@id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="12dp"/>
+
+    <!-- BOTTOM NAVIGATION -->
+    <LinearLayout
+        android:id="@+id/bottomNav"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:background="#1E3A5F"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:weightSum="5">
+
+        <!-- Home -->
+        <LinearLayout
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:src="@drawable/ic_home"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                app:tint="@android:color/white"/>
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Home"
+                android:textSize="12sp"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
+
+        <!-- Alerts -->
+        <LinearLayout
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:src="@drawable/ic_bell"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                app:tint="@android:color/white"/>
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Alerts"
+                android:textSize="12sp"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
+
+        <!-- Resources -->
+        <LinearLayout
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:src="@drawable/ic_medical"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                app:tint="@android:color/white"/>
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Resources"
+                android:textSize="12sp"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
+
+        <!-- Games -->
+        <LinearLayout
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:src="@drawable/ic_game"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                app:tint="@android:color/white"/>
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Games"
+                android:textSize="12sp"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
+
+        <!-- Profile -->
+        <LinearLayout
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+            <ImageView
+
+                android:src="@drawable/ic_profile"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                app:tint="@android:color/white"/>
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Profile"
+                android:textSize="12sp"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

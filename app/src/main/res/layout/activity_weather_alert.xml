@@ -23,13 +23,13 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/topbar"
-            android:tint="@android:color/white"/>
+            app:tint="@android:color/white" />
 
         <!-- Title -->
 
         <TextView
             android:layout_marginStart="15dp"
-            android:text="Weather & Disaster Alerts"
+            android:text="Weather and Disaster Alerts"
             android:textColor="@android:color/white"
             android:textSize="22sp"
             android:textStyle="bold"
@@ -43,7 +43,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/ic_setting"
-            android:tint="@android:color/white"/>
+            app:tint="@android:color/white" />
 
     </LinearLayout>
 
@@ -268,7 +268,7 @@
                         android:src="@drawable/ic_home"
                         android:layout_width="22dp"
                         android:layout_height="22dp"
-                        android:tint="@android:color/white"/>
+                        app:tint="@android:color/white" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

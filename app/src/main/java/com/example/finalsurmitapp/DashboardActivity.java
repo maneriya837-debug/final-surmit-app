@@ -2,177 +2,276 @@ package com.example.finalsurmitapp;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.Location;
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.FragmentActivity;
 
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.location.*;
+import com.google.android.gms.maps.*;
+import com.google.android.gms.maps.model.*;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
+import java.util.HashMap;
 
-public class DashboardActivity extends AppCompatActivity {
+public class DashboardActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private FusedLocationProviderClient fusedLocationClient;
+    private FusedLocationProviderClient locationClient;
+    private static final int LOCATION_PERMISSION_REQUEST = 101;
 
-    private double curLat = 0;
-    private double curLng = 0;
+    Button btnEvacuate;
+    LinearLayout btnEmergency, btnShelterLocations;
+    FrameLayout btnSOS;
+    ImageView settingsIcon;
 
-    private static final String API_KEY = "AIzaSyBTzcHFv78SYN7x6U9UWv22nnfAV5uvHPk";
+    double currentLat = 0.0, currentLng = 0.0;
 
-    private final ActivityResultLauncher<String> permissionLauncher =
-            registerForActivityResult(new ActivityResultContracts.RequestPermission(), granted -> {
-
-                if(granted){
-                    loadMapAndLocation();
-                }else{
-                    Toast.makeText(this,"Location Permission Required",Toast.LENGTH_SHORT).show();
-                }
-
-            });
+    DatabaseReference sosRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+        // 🔹 Buttons
+        btnEvacuate = findViewById(R.id.btnEvacuate);
+        btnEmergency = findViewById(R.id.btnEmergency);
+        btnShelterLocations = findViewById(R.id.btnShelterLocations);
+        btnSOS = findViewById(R.id.btnSOS);
+        settingsIcon = findViewById(R.id.settingsIcon);
+        settingsIcon = findViewById(R.id.settingsIcon);
 
-        SupportMapFragment mapFragment =
-                (SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.map);
-
-        if(mapFragment != null){
-
-            mapFragment.getMapAsync(googleMap -> {
-
-                mMap = googleMap;
-
-                checkPermission();
-
-            });
-
-        }
-    }
-
-    private void checkPermission(){
-
-        if(ContextCompat.checkSelfPermission(this,
-                Manifest.permission.ACCESS_FINE_LOCATION)
-                == PackageManager.PERMISSION_GRANTED){
-
-            loadMapAndLocation();
-
-        }else{
-
-            permissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION);
-
-        }
-
-    }
-
-    @SuppressLint("MissingPermission")
-    private void loadMapAndLocation(){
-
-        fusedLocationClient.getLastLocation().addOnSuccessListener(this, location -> {
-
-            if(location == null){
-                Toast.makeText(this,"Location unavailable",Toast.LENGTH_SHORT).show();
-                return;
+// Settings click listener
+        settingsIcon.setOnClickListener(v -> {
+            try {
+                Intent intent = new Intent(DashboardActivity.this, SettingsActivity.class);
+                startActivity(intent);
+            } catch (Exception e) {
+                Toast.makeText(DashboardActivity.this, "Failed to open Settings", Toast.LENGTH_SHORT).show();
+                e.printStackTrace();
             }
-
-            curLat = location.getLatitude();
-            curLng = location.getLongitude();
-
-            LatLng me = new LatLng(curLat,curLng);
-
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(me,14f));
-
-            mMap.addMarker(new MarkerOptions()
-                    .position(me)
-                    .title("You are here"));
-
-            fetchNearbyPlaces(curLat,curLng,"hospital");
-
         });
 
-    }
+        // 🔹 Firebase reference
+        sosRef = FirebaseDatabase.getInstance().getReference("SOS_Requests");
 
-    private void fetchNearbyPlaces(double lat,double lng,String type){
+        // 🔹 Evacuate
+        btnEvacuate.setOnClickListener(v -> {
+            Toast.makeText(this, "Evacuation Started!", Toast.LENGTH_SHORT).show();
+            saveEvacuationAlert();
 
-        new Thread(() -> {
+            Intent intent = new Intent(DashboardActivity.this, EvacuationActivity.class);
+            intent.putExtra("lat", currentLat);
+            intent.putExtra("lng", currentLng);
+            startActivity(intent);
+        });
 
-            try{
+        // 🔹 Emergency Alerts
+        btnEmergency.setOnClickListener(v -> {
+            Toast.makeText(this, "Opening Alerts...", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(DashboardActivity.this, EmergencyAlertActivity.class);
+            intent.putExtra("lat", currentLat);
+            intent.putExtra("lng", currentLng);
+            startActivity(intent);
+        });
 
-                String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
-                        + "?location=" + lat + "," + lng
-                        + "&radius=3000"
-                        + "&type=" + type
-                        + "&key=" + API_KEY;
+        // 🔹 Shelter Locations
+        btnShelterLocations.setOnClickListener(v -> {
+            Intent intent = new Intent(DashboardActivity.this, ShelterLocationsActivity.class);
+            intent.putExtra("lat", currentLat);
+            intent.putExtra("lng", currentLng);
+            startActivity(intent);
+        });
 
-                OkHttpClient client = new OkHttpClient();
+        // 🔴 SOS Button
+        btnSOS.setOnClickListener(v -> {
+            sendSOS(); // Firebase SOS
 
-                Request request = new Request.Builder().url(url).build();
-
-                Response response = client.newCall(request).execute();
-
-                if(!response.isSuccessful() || response.body() == null) return;
-
-                String body = response.body().string();
-
-                JSONObject root = new JSONObject(body);
-
-                JSONArray results = root.getJSONArray("results");
-
-                for(int i=0;i<results.length();i++){
-
-                    JSONObject p = results.getJSONObject(i);
-
-                    String name = p.optString("name");
-
-                    JSONObject loc = p.getJSONObject("geometry")
-                            .getJSONObject("location");
-
-                    double plat = loc.getDouble("lat");
-                    double plng = loc.getDouble("lng");
-
-                    LatLng place = new LatLng(plat,plng);
-
-                    runOnUiThread(() -> {
-
-                        mMap.addMarker(new MarkerOptions()
-                                .position(place)
-                                .title(name));
-
-                    });
-
-                }
-
-            }catch(Exception e){
-
-                runOnUiThread(() ->
-                        Toast.makeText(this,"API Error",Toast.LENGTH_SHORT).show());
-
+            // Open Emergency Contacts Screen safely
+            try {
+                Intent intent = new Intent(DashboardActivity.this, EmergencyContactsActivity.class);
+                startActivity(intent);
+            } catch (Exception e) {
+                Toast.makeText(DashboardActivity.this, "Failed to open Emergency Contacts", Toast.LENGTH_SHORT).show();
+                e.printStackTrace();
             }
+        });
 
-        }).start();
+        // 🔹 Location init
+        locationClient = LocationServices.getFusedLocationProviderClient(this);
 
+        // 🔹 Map init
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+
+        if (mapFragment != null) {
+            mapFragment.getMapAsync(this);
+        }
     }
 
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+        checkPermission();
+    }
+
+    // 🔐 Permission check
+    private void checkPermission() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                    LOCATION_PERMISSION_REQUEST);
+        } else {
+            getLocation();
+        }
+    }
+
+    // 📍 LIVE LOCATION TRACKING
+    @SuppressLint("MissingPermission")
+    private void getLocation() {
+
+        LocationRequest locationRequest = new LocationRequest.Builder(3000).build();
+
+        locationClient.requestLocationUpdates(
+                locationRequest,
+                new LocationCallback() {
+                    @Override
+                    public void onLocationResult(LocationResult result) {
+                        if (result == null) return;
+
+                        for (android.location.Location location : result.getLocations()) {
+
+                            currentLat = location.getLatitude();
+                            currentLng = location.getLongitude();
+
+                            LatLng user = new LatLng(currentLat, currentLng);
+
+                            mMap.clear();
+
+                            mMap.addMarker(new MarkerOptions()
+                                    .position(user)
+                                    .title("You are here"));
+
+                            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(user, 15));
+                            mMap.setMyLocationEnabled(true);
+
+                            addMarkers(user);
+                        }
+                    }
+                },
+                getMainLooper()
+        );
+    }
+
+    // 📍 Demo markers
+    private void addMarkers(LatLng user) {
+
+        LatLng flood = new LatLng(user.latitude + 0.01, user.longitude + 0.01);
+        mMap.addMarker(new MarkerOptions()
+                .position(flood)
+                .title("Flood Area")
+                .snippet("Avoid this area")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+
+        LatLng shelter = new LatLng(user.latitude - 0.01, user.longitude - 0.01);
+        mMap.addMarker(new MarkerOptions()
+                .position(shelter)
+                .title("Safe Shelter")
+                .snippet("Go here for safety")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+    }
+
+    // 🔴 SOS FUNCTION
+    private void sendSOS() {
+
+        if (currentLat == 0.0 || currentLng == 0.0) {
+            Toast.makeText(this, "Getting location... Try again!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        String id = sosRef.push().getKey();
+
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("latitude", currentLat);
+        map.put("longitude", currentLng);
+        map.put("time", System.currentTimeMillis());
+        map.put("status", "ACTIVE");
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) map.put("userId", user.getUid());
+
+        if (id != null) {
+            sosRef.child(id).setValue(map)
+                    .addOnSuccessListener(unused ->
+                            Toast.makeText(DashboardActivity.this, "🚨 SOS Sent Successfully!", Toast.LENGTH_LONG).show()
+                    )
+                    .addOnFailureListener(e ->
+                            Toast.makeText(DashboardActivity.this, "Failed to send SOS", Toast.LENGTH_SHORT).show()
+                    );
+        } else {
+            Toast.makeText(this, "Failed to generate SOS request", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    // 🔥 Firebase Save (Evacuation)
+    private void saveEvacuationAlert() {
+
+        DatabaseReference ref = FirebaseDatabase.getInstance()
+                .getReference("EvacuationAlerts");
+
+        String id = ref.push().getKey();
+
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("status", "Evacuated");
+        map.put("time", System.currentTimeMillis());
+        map.put("latitude", currentLat);
+        map.put("longitude", currentLng);
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) map.put("userId", user.getUid());
+
+        if (id != null) {
+            ref.child(id).setValue(map)
+                    .addOnSuccessListener(unused ->
+                            Toast.makeText(this, "Saved to Firebase", Toast.LENGTH_SHORT).show()
+                    )
+                    .addOnFailureListener(e ->
+                            Toast.makeText(this, "Failed to save", Toast.LENGTH_SHORT).show()
+                    );
+        }
+    }
+
+    // 🔁 Permission result
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if (requestCode == LOCATION_PERMISSION_REQUEST) {
+            if (grantResults.length > 0 &&
+                    grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                getLocation();
+            } else {
+                Toast.makeText(this, "Permission Denied", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
 }

@@ -1,3 +1,14 @@
+
 <resources>
-    <string name="app_name">final surmit app</string>
+
+        <string name="app_name">final surmit app</string>
+        <string name="emergency_contacts">Emergency Contacts</string>
+        <string name="emergency_desc">Your trusted contacts will be alerted during emergencies.</string>
+        <string name="police">Police</string>
+        <string name="ambulance">Ambulance</string>
+        <string name="fire">Fire Brigade</string>
+        <string name="add_contact">+ Add Emergency Contact</string>
+        <string name="sos">SEND SOS TO ALL CONTACTS</string>
+
+
 </resources>

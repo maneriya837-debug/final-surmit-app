@@ -1,5 +1,6 @@
 package com.example.finalsurmitapp;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -17,9 +18,11 @@ public class MainActivity extends AppCompatActivity {
     EditText etEmail, etPassword;
     Button btnLogin;
     TextView txtForgot;
+    TextView txtSignup;
 
     FirebaseAuth mAuth;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,13 +35,32 @@ public class MainActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
+        // 🔥 LOGIN BUTTON
         btnLogin.setOnClickListener(v -> loginUser());
 
+        // 🔥 FORGOT PASSWORD (👉 इथे add kar)
         txtForgot.setOnClickListener(v -> {
 
-            Intent intent = new Intent(MainActivity.this, OtpActivity.class);
-            startActivity(intent);
+            String email = etEmail.getText().toString().trim();
 
+            if(TextUtils.isEmpty(email)){
+                Toast.makeText(this,"Enter email first",Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            mAuth.sendPasswordResetEmail(email)
+                    .addOnCompleteListener(task -> {
+                        if(task.isSuccessful()){
+                            Toast.makeText(this,"Reset link sent to email",Toast.LENGTH_LONG).show();
+                        }else{
+                            Toast.makeText(this,"Error: "+task.getException().getMessage(),Toast.LENGTH_LONG).show();
+                        }
+                    });
+        });
+        txtSignup = findViewById(R.id.txtSignup);
+
+        txtSignup.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, DashboardActivity.class));
         });
     }
 
@@ -54,22 +76,19 @@ public class MainActivity extends AppCompatActivity {
         }
 
         mAuth.signInWithEmailAndPassword(email,password)
-
                 .addOnCompleteListener(task -> {
 
                     if(task.isSuccessful()){
-
-                        Toast.makeText(this,"Login Successful",Toast.LENGTH_SHORT).show();
 
                         startActivity(new Intent(MainActivity.this, DashboardActivity.class));
                         finish();
 
                     }else{
-
-                        Toast.makeText(this,"Login Failed",Toast.LENGTH_SHORT).show();
-
+                        Toast.makeText(this,"Wrong Email or Password",Toast.LENGTH_SHORT).show();
                     }
 
                 });
+
+
     }
 }

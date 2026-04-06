@@ -18,7 +18,7 @@
             android:layout_width="28dp"
             android:layout_height="28dp"
             android:src="@drawable/alert"
-            android:tint="@android:color/white"/>
+            app:tint="@android:color/white" />
 
         <TextView
             android:layout_width="0dp"
@@ -34,14 +34,15 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/ic_bell"
-            android:tint="@android:color/white"
-            android:layout_marginEnd="15dp"/>
+            android:layout_marginEnd="15dp"
+            app:tint="@android:color/white" />
 
         <ImageView
+            android:id="@+id/settingsIcon"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/ic_setting"
-            android:tint="@android:color/white"/>
+            app:tint="@android:color/white" />
     </LinearLayout>
 
     <!-- ================= BOTTOM NAV ================= -->
@@ -66,7 +67,7 @@
                 android:src="@drawable/ic_home"
                 android:layout_width="22dp"
                 android:layout_height="22dp"
-                android:tint="@android:color/white"/>
+                app:tint="@android:color/white" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -86,7 +87,7 @@
                 android:src="@drawable/ic_bell"
                 android:layout_width="22dp"
                 android:layout_height="22dp"
-                android:tint="@android:color/white"/>
+                app:tint="@android:color/white" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -106,7 +107,8 @@
                 android:src="@drawable/ic_medical"
                 android:layout_width="22dp"
                 android:layout_height="22dp"
-                android:tint="@android:color/white"/>
+                 app:tint="@android:color/white" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -127,7 +129,7 @@
                 android:src="@drawable/ic_game"
                 android:layout_width="22dp"
                 android:layout_height="22dp"
-                android:tint="@android:color/white"/>
+                app:tint="@android:color/white" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -147,7 +149,7 @@
                 android:src="@drawable/ic_profile"
                 android:layout_width="22dp"
                 android:layout_height="22dp"
-                android:tint="@android:color/white"/>
+                app:tint="@android:color/white" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -203,6 +205,7 @@
                         android:layout_marginTop="6dp"/>
 
                     <Button
+                        android:id="@+id/btnEvacuate"
                         android:layout_marginTop="12dp"
                         android:layout_width="match_parent"
                         android:layout_height="45dp"
@@ -220,11 +223,11 @@
                 app:cardCornerRadius="12dp"
                 app:cardElevation="6dp">
 
-                <ImageView
-                    android:src="@drawable/map_bg"
-                    android:scaleType="centerCrop"
+                <fragment
+                    android:id="@+id/map"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="220dp"/>
 
             </androidx.cardview.widget.CardView>
 
@@ -247,17 +250,20 @@
                     app:cardElevation="6dp">
 
                     <LinearLayout
+                        android:id="@+id/btnEmergency"
                         android:background="@drawable/bg_emergency_red"
                         android:gravity="center"
                         android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:clickable="true"
+                        android:focusable="true">
 
                         <ImageView
                             android:layout_width="28dp"
                             android:layout_height="28dp"
                             android:src="@drawable/ic_warning"
-                            android:tint="@android:color/white"/>
+                            app:tint="@android:color/white" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -285,13 +291,13 @@
                         android:gravity="center"
                         android:orientation="vertical"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
+                        android:layout_height="match_parent"
+                        android:id="@+id/btnShelterLocations">
                         <ImageView
                             android:layout_width="28dp"
                             android:layout_height="28dp"
                             android:src="@drawable/ic_home"
-                            android:tint="@android:color/white"/>
+                            app:tint="@android:color/white" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -314,6 +320,7 @@
                     app:cardElevation="6dp">
 
                     <FrameLayout
+                        android:id="@+id/btnSOS"
                         android:background="@drawable/bg_sos_outer"
                         android:gravity="center"
                         android:layout_width="match_parent"

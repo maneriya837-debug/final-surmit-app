@@ -64,6 +64,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:id="@+id/txtWeather"
                     android:text="🌧 Weather Alert"
                     android:textStyle="bold"
                     android:textSize="18sp"
@@ -72,6 +73,7 @@
                     android:layout_height="wrap_content"/>
 
                 <TextView
+                    android:id="@+id/txtWarning"
                     android:text="Heavy Rainfall Warning"
                     android:textColor="#F52727"
                     android:textSize="18sp"
@@ -81,6 +83,7 @@
                     android:layout_height="wrap_content"/>
 
                 <TextView
+                    android:id="@+id/txtTemp"
                     android:text="Temperature: 28°C"
                     android:textSize="18sp"
                     android:layout_marginTop="8dp"
@@ -88,18 +91,21 @@
                     android:layout_height="wrap_content"/>
 
                 <TextView
+                    android:id="@+id/txtHumidity"
                     android:text="Humidity: 85%"
                     android:textSize="18sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
                 <TextView
+                    android:id="@+id/txtWind"
                     android:text="Wind: 20 km/h"
                     android:textSize="18sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
                 <TextView
+                    android:id="@+id/txtLocation"
                     android:text="📍 Location: Pune"
                     android:textSize="18sp"
                     android:layout_marginTop="4dp"
@@ -161,17 +167,18 @@
 
         <!-- VIEW EVACUATION BUTTON -->
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="📍 View Evacuation Route"
-            android:textColor="@android:color/white"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:layout_marginTop="18dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:backgroundTint="#1E5BB8" />
+            <Button
+                android:id="@+id/btnRoute"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="📍 View Evacuation Route"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_marginTop="18dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="#1E5BB8" />
 
         <!-- SAFETY TIPS -->
 
